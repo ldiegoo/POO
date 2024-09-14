@@ -10,7 +10,7 @@ public class Producto {
     public Random random = new Random();
 
     public Producto(String nombre, Double precio, String descripcion, String categoria, int stock) {
-        this.id = this.random.nextInt() ;
+        this.id = this.random.nextInt(1001) ;
         this.nombre = nombre;
         this.precio = precio;
         this.descripcion = descripcion;
