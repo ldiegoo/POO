@@ -50,7 +50,7 @@ public class Main {
                     Producto producto = new Producto(nombre, precio, descripcion, categoria, stock);
                     inventario.registrarProducto(producto);
 
-                    System.out.println("\nProducto registrado correctamente");
+                    System.out.println("\roducto registrado correctamente");
                     break;
                 case 2:
                     System.out.println("\nSeleccionaste la opción para eliminar un producto");
