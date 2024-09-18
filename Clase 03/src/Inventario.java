@@ -2,9 +2,14 @@ import java.util.ArrayList;
 
 public class Inventario {
     public ArrayList<Producto> listaProductos = new ArrayList<Producto>();
+    public ArrayList<Categoria> listaCategoria=new ArrayList<Categoria>();
 
     public void registrarProducto(Producto producto) {
         this.listaProductos.add(producto);
+    }
+
+    public void registrarCategoria(Categoria categoria) {
+        this.listaCategoria.add(categoria);
     }
 
     public void eliminarProducto(int idProductoEliminar) {
@@ -34,6 +39,8 @@ public class Inventario {
             iterador++;
         }
     }
-
+    public boolean validarExistenciaDeCategoria(){
+        return this.listaCategoria.size() > 0;
+    }
 
 }

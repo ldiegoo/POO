@@ -7,11 +7,13 @@ public class Main {
         int opcion = 0;
 
         while (opcion != 4) {
-            System.out.println("\n*** BIEVENIDO ***");
+            System.out.println("\n*** BIENVENIDO ***");
             System.out.println("1. Registrar producto");
             System.out.println("2. Eliminar producto");
             System.out.println("3. Mostrar productos");
-            System.out.println("4. Salir");
+            System.out.println("4. Mostrar categorias");
+            System.out.println("5. Registrar categoria");
+            System.out.println("6. Salir");
 
             System.out.println("Selecciona una opción: ");
             opcion = scanner.nextInt();
@@ -20,34 +22,40 @@ public class Main {
 
             switch (opcion) {
                 case 1:
+                    if(!inventario.validarExistenciaDeCategoria()){
+                        System.out.println("\n No existen categorias en el sistema");
+                        break;
+                    }
                     System.out.println("\nSeleccionaste la opción para registrar un producto");
 
-                    System.out.println("Ingresa el nombre del producto");
+                    System.out.println("\nIngresa el nombre del producto");
                     String nombre = scanner.nextLine();
 
                     scanner.nextLine();
 
-                    System.out.println("Ingresa el precio del producto");
+                    System.out.println("\nIngresa el precio del producto");
                     double precio = scanner.nextDouble();
 
                     scanner.nextLine();
 
-                    System.out.println("Ingresa la descripción del producto");
+                    System.out.println("\nIngresa la descripcion del producto");
                     String descripcion = scanner.nextLine();
 
                     scanner.nextLine();
 
-                    System.out.println("Ingresa la categoría del producto");
-                    String categoria = scanner.nextLine();
+                    System.out.println("\nIngresa el id de la categoria en la cual registraras el producto");
+                     int idCategoria = scanner.nextInt();
+                     scanner.nextLine();
 
                     scanner.nextLine();
 
-                    System.out.println("Ingresa el stock del producto");
+
+                    System.out.println("\nIngresa el stock del producto");
                     int stock = scanner.nextInt();
 
                     System.out.println(nombre);
 
-                    Producto producto = new Producto(nombre, precio, descripcion, categoria, stock);
+                    Producto producto = new Producto(nombre, precio, descripcion, idCategoria, stock);
                     inventario.registrarProducto(producto);
 
                     System.out.println("\nProducto registrado correctamente");
@@ -55,7 +63,7 @@ public class Main {
                 case 2:
                     System.out.println("\nSeleccionaste la opción para eliminar un producto");
 
-                    System.out.println("Ingresa el ID del producto: ");
+                    System.out.println("\nIngresa el ID del producto: ");
                     int id = scanner.nextInt();
 
                     inventario.eliminarProducto(id);
@@ -64,6 +72,23 @@ public class Main {
                     inventario.mostrarProductos();
                     break;
                 case 4:
+                    //Crear un metodo para listar todas las categorias del sistema junto con sus productos
+                    //junto con sus productos
+                    break;
+                case 5:
+
+                    System.out.println("\nSeleccionaste la opción para registrar una categoria");
+
+                    System.out.print("Ingresa el nombre de la categoría: ");
+                    String nombreCategoria = scanner.next();
+
+                    Categoria categoria = new Categoria(nombreCategoria);
+                    inventario.registrarCategoria(categoria);
+                    System.out.println("\nCategoria registrada correctamente");
+
+                    break;
+
+                case 6:
                     System.out.println("Hasta luego");
                     return;
             }
