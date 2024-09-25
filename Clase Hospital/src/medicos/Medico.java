@@ -1,14 +1,16 @@
 package medicos;
 
+import java.time.LocalDate;
+
 public class Medico {
     public String id;
     public String nombre;
     public String apellidos;
-    public String fechaNacimiento;
+    public LocalDate fechaNacimiento;
     private String telefono;
     private String rfc;
 
-    public Medico(String id, String nombre, String apellidos, String fechaNacimiento, String telefono, String rfc) {
+    public Medico(String id, String nombre, String apellidos, LocalDate fechaNacimiento, String telefono, String rfc) {
         this.id = id;
         this.nombre = nombre;
         this.apellidos = apellidos;
@@ -29,7 +31,7 @@ public class Medico {
         return apellidos;
     }
 
-    public String getFechaNacimiento() {
+    public LocalDate getFechaNacimiento() {
         return fechaNacimiento;
     }
 
@@ -39,10 +41,10 @@ public class Medico {
 
     public String getRfc() {
         return rfc;
-}
-public String mostrarMedico() {
-        String datos = String.format("ID: %s Nombre: %s Apellido: %s Fecha Nacimiento: %s Num. Telefono: %s Rfc: %s",id, nombre, apellidos, fechaNacimiento, telefono, rfc);
-        return datos;
+    }
+    public String mostrarMedico() {
+        return String.format("ID: %s Nombre: %s Apellido: %s Fecha Nacimiento: %s Num. Telefono: %s Rfc: %s",
+                getId(), getNombre(), getApellidos(), getFechaNacimiento(), getTelefono(), getRfc());
 }
 
 

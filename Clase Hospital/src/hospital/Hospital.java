@@ -17,6 +17,7 @@ public class Hospital {
     public ArrayList<Consulta> listaConsultas = new ArrayList<>();
     public ArrayList<Consultorio> listaConsultorios = new ArrayList<>();
     private ValidadorHospital validador = new ValidadorHospital();
+    Random random = new Random();
 
     public void registrarPacientes(Paciente paciente) {
         this.listaPacientes.add(paciente);
@@ -53,37 +54,38 @@ public class Hospital {
             System.out.println(paciente.mostrarDatos());
         }
     }
+
     public void mostrarMedicos() {
         System.out.println("\n** Medicos del Hospital **");
         for (Medico medico : this.listaMedicos) {
             System.out.println(medico.mostrarMedico());
         }
     }
+
     public void mostrarConsultorio(){
         System.out.println("** Consultorios del Hospital **");
         for (Consultorio consultorio : this.listaConsultorios) {
             System.out.println(consultorio.mostrarConsultorio());
         }
     }
-    public void mostrarPacienteID(String id) {
-        Optional<Paciente> pacienteEncontrado = this.listaPacientes.stream().filter(paciente -> paciente.getId().equals(id)).findFirst();
 
-        if (pacienteEncontrado.isPresent()) {
-            System.out.println(pacienteEncontrado.get().mostrarDatos());
+    public Paciente obtenerPacientePorId(String idPaciente) {
+        return listaPacientes.stream().filter(p -> p.getId().equals(idPaciente)).findFirst().orElse(null);
+    }
+
+    public Medico obtenerMedicoPorId(String idMedico) {
+        return listaMedicos.stream().filter(m -> m.getId().equals(idMedico)).findFirst().orElse(null);
+    }
+
+    public void mostrarPacienteID(String idPaciente) {
+        Paciente paciente = obtenerPacientePorId(idPaciente);
+
+        if (paciente != null) {
+            System.out.println(paciente.mostrarDatos());
         } else {
             System.out.println("No se encontro el paciente");
         }
-       /* for (Paciente paciente: this.listaPacientes) {
-            if (paciente.getId().equals(id)) {
-                System.out.println(paciente.mostrarDatos());
-                return;
-            } else {
-                System.out.println("Paciente no encontrado");
-                return;
-            }*/
-
-        }
-
+    }
 
     public String generarIdPaciente() {
         Random random = new Random();
@@ -93,46 +95,56 @@ public class Hospital {
         int longitudPacienteMasUno = this.listaPacientes.size()+1;
         int numeroAleatorio = random.nextInt();
 
-        String idPaciente = String.format("P%d%d%d%d", anioActual, mesActual, longitudPacienteMasUno, numeroAleatorio);
-        return idPaciente;
+        return String.format("P%d%d%d%d", anioActual, mesActual, longitudPacienteMasUno, numeroAleatorio);
     }
-    public String generarIdMedico(String letrasApellidos, char ultimoDigitoNaci){
+
+    public String generarIdMedico(String apellidoMedico, String fechaNaciMedico){
         //M-{Primeras 2 letras de su apellido} - {ultimo dígito de su año de nacimiento} - {año actual} - {numero aleatorio entre 50 y 700000} - {longitud de la lista de medicos + 1}
-        Random random = new Random();
         LocalDate fecha = LocalDate.now();
         int anioActual = fecha.getYear();
         int longitudMedicoMasUno = this.listaMedicos.size() + 1;
         int numeroAleatorio = random.nextInt(700000+50);
+        char letra1 = apellidoMedico.charAt(0);
+        letra1= Character.toUpperCase(letra1);
+        char letra2 = apellidoMedico.charAt(1);
+        letra2= Character.toUpperCase(letra2);
+        String letrasApellidos = letra1 + "" + letra2;
+        char ultimoDigitoNaci= fechaNaciMedico.charAt(fechaNaciMedico.length() - 1);
 
-        String idMedico = String.format("M%s%c%d%d%d",letrasApellidos, ultimoDigitoNaci, anioActual, numeroAleatorio,longitudMedicoMasUno);
-        return idMedico;
+        return String.format("M%s%c%d%d%d",letrasApellidos, ultimoDigitoNaci, anioActual, numeroAleatorio,longitudMedicoMasUno);
     }
+
     public String generarIdConsultorio(){
         //C-{longitud de la lista de consultorios + 1}-{dia actual}-{año actual}-{numero aleatorio entre 1 y 500000}
-        Random random = new Random();
         LocalDate fecha = LocalDate.now();
         int anioActual = fecha.getYear();
         int diaActual = fecha.getDayOfMonth();
         int longitudConsultorio = this.listaConsultorios.size() + 1;
         int NumAleatorio = random.nextInt(500000);
-        String idConsultorio =String.format("C%d%d%d",longitudConsultorio,diaActual,anioActual,NumAleatorio);
-        return idConsultorio;
+        return String.format("C%d%d%d%d",longitudConsultorio,diaActual,anioActual,NumAleatorio);
     }
 
-public void mostrarMedicoPorId(String id){
-Optional<Medico> medicoEncontrado=this.listaMedicos.stream().filter(medico -> medico.getId().equals(id)).findFirst();
-if (medicoEncontrado.isPresent()) {
-    System.out.println(medicoEncontrado.get().mostrarMedico());
-}else{
-    System.out.println("No se encontro el medico");
-}
-}
-public void mostrarConsultorioPorId(String id){
+    public void mostrarMedicoPorId(String id){
+        Optional<Medico> medicoEncontrado=this.listaMedicos.stream().filter(medico -> medico.getId().equals(id)).findFirst();
+        if (medicoEncontrado.isPresent()) {
+            System.out.println(medicoEncontrado.get().mostrarMedico());
+        }else{
+            System.out.println("No se encontro el medico");
+        }
+    }
+
+    public void mostrarConsultorioPorId(String id){
         Optional<Consultorio> consultorioEncontrado =listaConsultorios.stream().filter(consultorio -> consultorio.getId().equals(id)).findFirst();
         if (consultorioEncontrado.isPresent()) {
             System.out.println(consultorioEncontrado.get().mostrarConsultorio());
         }else {
             System.out.println("No se encontro el consultorio");
-        }
+
+ }
 }
+
+    public Consultorio obtenerConsultorioPorId(String idConsultorio){
+        return listaConsultorios.stream().filter(consultorio -> consultorio.getId().equals(idConsultorio)).findFirst().orElse(null);
+    }
+
 } // fin hospital

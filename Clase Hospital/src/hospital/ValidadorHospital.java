@@ -1,12 +1,16 @@
 package hospital;
 import hospital.Hospital;
 import consultas.Consulta;
+import medicos.Medico;
+
+import java.time.LocalDateTime;
+
 import java.util.ArrayList;
 
 public class ValidadorHospital {
-    public boolean validarDisponibilidadEnFechaConsulta(String fecheDeseada, int numeroConsultorio, ArrayList<Consulta> listaConsultas) {
+    public boolean validarDisponibilidadEnFechaConsulta(LocalDateTime fecheDeseada, int numeroConsultorio, ArrayList<Consulta> listaConsultas) {
         for (Consulta consulta : listaConsultas) {
-            if (consulta.getFechaHora().equals(fecheDeseada) && numeroConsultorio == consulta.getConsultorio().getNumeroConsultorio()) {
+            if (consulta.getFechaHora().isEqual(fecheDeseada) && numeroConsultorio == consulta.getConsultorio().getNumeroConsultorio()) {
                 return false;
             }
         }
@@ -14,14 +18,15 @@ public class ValidadorHospital {
         return true;
     }
 
-    public boolean validarDisponibilidadMedico(String fechaDeseada, String idMedico, ArrayList<Consulta> listaConsultas) {
+    public boolean validarDisponibilidadMedico(LocalDateTime fechaDeseada, String idMedico, ArrayList<Consulta> listaConsultas) {
         for (Consulta consulta : listaConsultas) {
-            if (consulta.getFechaHora().equals(fechaDeseada) && consulta.getMedico().getId() == idMedico) {
+            if (consulta.getFechaHora().isEqual(fechaDeseada) && consulta.getMedico().getId().equals(idMedico)) {
                 return false;
             }
         }
 
         return true;
 }
+
 
 }
