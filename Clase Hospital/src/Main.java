@@ -66,8 +66,11 @@ public class Main {
 
                     System.out.print("Ingresa el numero de telefono: ");
                     String telefono = scanner.nextLine();
+                    if (hospital.existePacienteConTelefono(telefono)) {
+                        System.out.println("Ya existe un paciente con ese número de teléfono. Por favor, ingrese un número diferente.");
+                    }
 
-                    Paciente paciente = new Paciente(id, nombre, apellido, fechaNacimiento, tipoSangre, sexo, telefono);
+                        Paciente paciente = new Paciente(id, nombre, apellido, fechaNacimiento, tipoSangre, sexo, telefono);
                     hospital.registrarPacientes(paciente);
 
                     System.out.println("Paciente registrado exitosamente :D");
@@ -95,10 +98,17 @@ public class Main {
                     System.out.print("Ingresa el telefono del medico: ");
                     String telMedico = scanner.nextLine();
 
-                    System.out.print("Ingresa el rfc del medico: ");
-                    String rfcMedico = scanner.nextLine();
+                    if (hospital.existeMedicoConTelefono(telMedico)) {
+                        System.out.println("Ya existe un médico con ese número de teléfono. Por favor, ingrese un número diferente.");
+                    }
 
-                    String idMedico= hospital.generarIdMedico(apellidoMedico, String.valueOf(fechaNaciMedico.getYear()));
+                        System.out.print("Ingresa el rfc del medico: ");
+                    String rfcMedico = scanner.nextLine();
+                    if (hospital.existeMedicoConRfc(rfcMedico)) {
+                        System.out.println("Ya existe un médico con ese RFC. Por favor, ingrese un RFC diferente.");
+                    }
+
+                        String idMedico= hospital.generarIdMedico(apellidoMedico, String.valueOf(fechaNaciMedico.getYear()));
 
                     Medico medico=new Medico(idMedico,nombreMedico,apellidoMedico,fechaNaciMedico,telMedico,rfcMedico);
                     hospital.registrarMedico(medico);
@@ -141,23 +151,27 @@ public class Main {
                     int minutosConsulta = scanner.nextInt();
 
                     LocalDateTime fechaConsulta = LocalDateTime.of(anioConsulta, mesConsulta, diaConsulta, horaConsulta, minutosConsulta);
-
+                    if (fechaConsulta.isBefore(LocalDateTime.now())) {
+                    System.out.println("La fecha de consulta no puede ser en el pasado. Por favor, ingrese una fecha válida.");
+                }
                     System.out.print("Ingresa el id del paciente: ");
                     String pacienteId = scanner.nextLine();
 
                     Paciente pacienteConsulta = hospital.obtenerPacientePorId(pacienteId);
-
+                    if (pacienteConsulta == null) {
+                        System.out.println("No se encontró el paciente con el ID ingresado. Por favor, ingrese un ID válido.");}
                     System.out.print("Ingresa el id del medico: ");
                     String medicoId = scanner.nextLine();
 
                     Medico medicoConsulta = hospital.obtenerMedicoPorId(medicoId);
-
+                    if (medicoConsulta == null) {
+                        System.out.println("No se encontró el médico con el ID ingresado. Por favor, ingrese un ID válido.");
+                    }
                     System.out.println("Ingresa el id del consultorio: ");
                     String consultorioId = scanner.nextLine();
                     Consultorio consultorio1= hospital.obtenerConsultorioPorId(consultorioId);
-
-                    if(pacienteConsulta== null || consultorio1==null || medicoConsulta==null){
-                        System.out.println("No se encontro el paciente, médico o consultorio");
+                    if (consultorio1 == null) {
+                        System.out.println("No se encontró el consultorio con el ID ingresado. Por favor, ingrese un ID válido.");
                     }
 
                     int idConsulta= hospital.listaConsultas.size()+1;

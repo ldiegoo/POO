@@ -146,5 +146,16 @@ public class Hospital {
     public Consultorio obtenerConsultorioPorId(String idConsultorio){
         return listaConsultorios.stream().filter(consultorio -> consultorio.getId().equals(idConsultorio)).findFirst().orElse(null);
     }
+    public boolean existePacienteConTelefono(String telefono) {
+        return listaPacientes.stream().anyMatch(p -> p.getTelefono().equals(telefono));
+    }
+
+    public boolean existeMedicoConTelefono(String telefono) {
+        return listaMedicos.stream().anyMatch(m -> m.getTelefono().equals(telefono));
+    }
+    public boolean existeMedicoConRfc(String rfc) {
+        return listaMedicos.stream().anyMatch(m -> m.getRfc().equals(rfc));
+    }
+
 
 } // fin hospital

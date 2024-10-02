@@ -1,6 +1,5 @@
 package consultorios;
 
-import com.sun.javafx.binding.StringFormatter;
 
 public class Consultorio {
     public String id;
