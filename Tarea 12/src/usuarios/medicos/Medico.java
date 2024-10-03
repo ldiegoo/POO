@@ -1,21 +1,15 @@
-package medicos;
+package usuarios.medicos;
+
+import usuarios.Usuario;
+import usuarios.utils.Rol;
 
 import java.time.LocalDate;
 
-public class Medico {
-    public String id;
-    public String nombre;
-    public String apellidos;
-    public LocalDate fechaNacimiento;
-    private String telefono;
+public class Medico extends Usuario {
     private String rfc;
 
-    public Medico(String id, String nombre, String apellidos, LocalDate fechaNacimiento, String telefono, String rfc) {
-        this.id = id;
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.fechaNacimiento = fechaNacimiento;
-        this.telefono = telefono;
+    public Medico (String id, String nombre, String apellidos, LocalDate fechaNacimiento, String telefono, String rfc,String contraseña) {
+        super(id, nombre, apellidos, fechaNacimiento, telefono, Rol.MEDICO);
         this.rfc = rfc;
     }
 
@@ -38,6 +32,7 @@ public class Medico {
     public String getTelefono() {
         return telefono;
     }
+
 
     public String getRfc() {
         return rfc;

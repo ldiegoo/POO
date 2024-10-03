@@ -1,7 +1,5 @@
 package hospital;
-import hospital.Hospital;
 import consultas.Consulta;
-import medicos.Medico;
 
 import java.time.LocalDateTime;
 

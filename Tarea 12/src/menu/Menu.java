@@ -3,13 +3,12 @@ package menu;
 import consultas.Consulta;
 import consultorios.Consultorio;
 import hospital.Hospital;
-import medicos.Medico;
-import pacientes.Paciente;
+import usuarios.medicos.Medico;
+import usuarios.pacientes.Paciente;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Menu {
@@ -106,7 +105,7 @@ int opcion=0;
         while (opcion != 4){
             System.out.println("SISTEMA HOSPITAL");
             System.out.println("1. Ver mis consultas");
-            System.out.println("2. Ver mis pacientes");
+            System.out.println("2. Ver mis usuarios.pacientes");
             System.out.println("3. Consultar paciente");
             System.out.println("4. Salir");
 
@@ -117,7 +116,7 @@ int opcion=0;
             switch (opcion){
                 case 1:
                     return;
-                case 2: System.out.println("\n--Seleccionaste la opción de mirar tus pacientes--");
+                case 2: System.out.println("\n--Seleccionaste la opción de mirar tus usuarios.pacientes--");
 
 
                     mostrarPacientesMedico(USUARIO_PACIENTE);
@@ -158,7 +157,7 @@ int opcion=0;
 
             switch (opcion) {
                 case 1:
-                    System.out.println("\n--Seleccionaste la opción de registrar pacientes--");
+                    System.out.println("\n--Seleccionaste la opción de registrar usuarios.pacientes--");
 
                     String id = hospital.generarIdPaciente();
 
@@ -198,7 +197,7 @@ int opcion=0;
                     System.out.println("Paciente registrado exitosamente :D");
                     break;
                 case 2:
-                    System.out.println("\n--Seleccionaste la opción de registrar medicos--");
+                    System.out.println("\n--Seleccionaste la opción de registrar usuarios.medicos--");
 
                     System.out.print("\nIngresa el nombre del medico: ");
                     String nombreMedico = scanner.nextLine();
@@ -304,11 +303,11 @@ int opcion=0;
 
                     break;
                 case 5:
-                    System.out.println("\n--Seleccionaste la opción de mostrar pacientes--");
+                    System.out.println("\n--Seleccionaste la opción de mostrar usuarios.pacientes--");
                     hospital.mostrarPacientes();
                     break;
                 case 6:
-                    System.out.println("\n--Seleccionaste la opción de mostrar medicos--");
+                    System.out.println("\n--Seleccionaste la opción de mostrar usuarios.medicos--");
                     hospital.mostrarMedicos();
                     break;
                 case 7:
@@ -327,7 +326,7 @@ int opcion=0;
                     hospital.mostrarPacienteID(idPaciente);
                     break;
                 case 10:
-                    System.out.println("\n--Seleccionaste la opción de buscar medicos mediante la ID--");
+                    System.out.println("\n--Seleccionaste la opción de buscar usuarios.medicos mediante la ID--");
 
                     System.out.println("Ingresa el Id del medico que deseas buscar: ");
                     String idMedico2 = scanner.nextLine();

@@ -2,8 +2,8 @@ package hospital;
 
 import consultas.Consulta;
 import consultorios.Consultorio;
-import medicos.Medico;
-import pacientes.Paciente;
+import usuarios.medicos.Medico;
+import usuarios.pacientes.Paciente;
 import menu.Menu;
 
 import java.time.LocalDate;
@@ -100,7 +100,7 @@ public class Hospital {
     }
 
     public String generarIdMedico(String apellidoMedico, String fechaNaciMedico){
-        //M-{Primeras 2 letras de su apellido} - {ultimo dígito de su año de nacimiento} - {año actual} - {numero aleatorio entre 50 y 700000} - {longitud de la lista de medicos + 1}
+        //M-{Primeras 2 letras de su apellido} - {ultimo dígito de su año de nacimiento} - {año actual} - {numero aleatorio entre 50 y 700000} - {longitud de la lista de usuarios.medicos + 1}
         LocalDate fecha = LocalDate.now();
         int anioActual = fecha.getYear();
         int longitudMedicoMasUno = this.listaMedicos.size() + 1;
