@@ -4,6 +4,7 @@ import consultas.Consulta;
 import consultorios.Consultorio;
 import medicos.Medico;
 import pacientes.Paciente;
+import menu.Menu;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -11,7 +12,7 @@ import java.util.Optional;
 import java.util.Random;
 
 public class Hospital {
-
+    Menu menu=new Menu();
     public ArrayList<Paciente> listaPacientes = new ArrayList<>();
     public ArrayList<Medico> listaMedicos = new ArrayList<>();
     public ArrayList<Consulta> listaConsultas = new ArrayList<>();
@@ -142,6 +143,7 @@ public class Hospital {
 
         }
     }
+
 
     public Consultorio obtenerConsultorioPorId(String idConsultorio){
         return listaConsultorios.stream().filter(consultorio -> consultorio.getId().equals(idConsultorio)).findFirst().orElse(null);
