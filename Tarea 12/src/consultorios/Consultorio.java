@@ -1,6 +1,5 @@
 package consultorios;
 
-
 public class Consultorio {
     public String id;
     public int piso;
@@ -25,8 +24,7 @@ public class Consultorio {
         return numeroConsultorio;
     }
     public String mostrarConsultorio() {
-        String datos=String.format("Id: %s Piso: %d Num. Consultorio: %d", id, piso, numeroConsultorio);
-        return datos;
+        return String.format("Id: %s  |  Piso: %d  |  Num. Consultorio: %d", getId(), getPiso(), getNumeroConsultorio());
     }
 
 
