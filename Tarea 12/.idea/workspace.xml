@@ -4,7 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a285dae-4560-43da-8b07-f89115d6894c" name="Changes" comment="" />
+    <list default="true" id="6a285dae-4560-43da-8b07-f89115d6894c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tarea 12.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/consultas/Consulta.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/consultorios/Consultorio.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hospital/Hospital.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hospital/ValidadorHospital.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/menu/Menu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/usuarios/Usuario.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/usuarios/administrador/Administrador.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/usuarios/medicos/Medico.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/usuarios/pacientes/Paciente.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/usuarios/utils/Rol.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Clase Hospital/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Clase Hospital/.idea/shelf/Uncommitted_changes_before_Checkout_at_24_09_2024_08_09_a__m___Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Clase Hospital/.idea/shelf/Uncommitted_changes_before_Checkout_at_24_09_2024_08_09_a__m___Changes_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Clase Hospital/.idea/shelf/Uncommitted_changes_before_Checkout_at_24_09_2024_08_09_a_ m__[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Clase Hospital/.idea/shelf/Uncommitted_changes_before_Checkout_at_24_09_2024_08_09_a_ m__[Changes]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Clase Hospital/.idea/shelf/Uncommitted_changes_before_Checkout_at_24_09_2024_08_09_a_ m__[Changes]2/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Clase Hospital/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Clase Hospital/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,19 +66,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "tarea1/unidad3",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;tarea1/unidad3&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -72,6 +97,7 @@
       <updated>1728007569217</updated>
       <workItem from="1728007571638" duration="3544000" />
       <workItem from="1728011171563" duration="34000" />
+      <workItem from="1728011211821" duration="98000" />
     </task>
     <servers />
   </component>
