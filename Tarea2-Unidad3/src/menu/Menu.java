@@ -36,7 +36,7 @@ public class Menu {
         System.out.println("BIENVENIDO");
         System.out.println("Inicia sesion para continuar");
 
-        while(intentosUsuario < intentosMAXIMOS && salir==false) {
+        while(intentosUsuario < intentosMAXIMOS) {
 
             System.out.println("Ingresa el  usuario: ");
             String usuario = scanner.nextLine();
@@ -77,7 +77,7 @@ public class Menu {
         while(opcion !=2) {
             System.out.println("\n****BIENVENIDO****");
             System.out.println("1. Ver consultas");
-            System.out.println("2. Salir");
+            System.out.println("2. Salir de la sesión");
 
             System.out.println("Selecciona una opcion: ");
             opcion = scanner.nextInt();
@@ -108,7 +108,7 @@ public class Menu {
             System.out.println("1. Ver consultas");
             System.out.println("2. Ver mis usuarios.pacientes");
             System.out.println("3. Consultar Paciente");
-            System.out.println("4. Salir");
+            System.out.println("4. Salir de la sesión");
 
             System.out.println("Selecciona una opcion: ");
             opcion2 = scanner.nextInt();
@@ -152,7 +152,7 @@ public class Menu {
             System.out.println("11. Buscar consultorios por Id");
             System.out.println("12. Registrar administrador");
             System.out.println("13. Mostrar administradores");
-            System.out.println("14. Salir");
+            System.out.println("14. Salir de la sesión");
             System.out.print("\nSelecciona una opcion: ");
             opcion = scanner.nextInt();
             switch (opcion) {
@@ -470,7 +470,7 @@ public class Menu {
                     break;
                 case 14:
                     System.out.println("\n**Saliendo del sistema :D **\n");
-                    salir=true;
+                    scanner.nextLine();
                     break;
                 default:
                     System.out.println("\n  ||Numero no esta dentro de las opciones||\n");
