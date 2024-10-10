@@ -15,20 +15,20 @@ import usuarios.utils.Rol;
 public class Menu {
     public Hospital hospital = new Hospital();
     private Scanner scanner = new Scanner(System.in);
-    boolean salir = false;
+
 
     public void login(){
 
         Administrador administrador = new Administrador(
             "001",
-            "Admin",
-            "Pro",
-            LocalDate.of(1980,11,12),
-            "4451010809",
-            "12354",
-            10000,
-            "Admin123",
-            5
+            "admin",
+            "1",
+            LocalDate.of(2004,9,17),
+            "443 333 182", 
+            "***",
+            15000,
+            "refadmin123",
+            10
             );
             hospital.registrarAdministrador(administrador);
 
@@ -41,7 +41,7 @@ public class Menu {
             System.out.println("Ingresa el  usuario: ");
             String usuario = scanner.nextLine();
 
-            System.out.println("Ingresa la contraseña: ");
+            System.out.println("Ingresa la contrasenia: ");
             String contrasenia = scanner.nextLine();
 
             Usuario usuarioEnSesion = hospital.validarInicioSesion(usuario,contrasenia); // Usuario || null
@@ -77,7 +77,7 @@ public class Menu {
         while(opcion !=2) {
             System.out.println("\n****BIENVENIDO****");
             System.out.println("1. Ver consultas");
-            System.out.println("2. Salir de la sesión");
+            System.out.println("2. Salir");
 
             System.out.println("Selecciona una opcion: ");
             opcion = scanner.nextInt();
@@ -108,7 +108,7 @@ public class Menu {
             System.out.println("1. Ver consultas");
             System.out.println("2. Ver mis usuarios.pacientes");
             System.out.println("3. Consultar Paciente");
-            System.out.println("4. Salir de la sesión");
+            System.out.println("4. Salir");
 
             System.out.println("Selecciona una opcion: ");
             opcion2 = scanner.nextInt();
@@ -152,7 +152,7 @@ public class Menu {
             System.out.println("11. Buscar consultorios por Id");
             System.out.println("12. Registrar administrador");
             System.out.println("13. Mostrar administradores");
-            System.out.println("14. Salir de la sesión");
+            System.out.println("14. Salir");
             System.out.print("\nSelecciona una opcion: ");
             opcion = scanner.nextInt();
             switch (opcion) {
@@ -194,7 +194,7 @@ public class Menu {
                         telefono = scanner.nextLine();
                         Paciente telefonoPaciente = hospital.obtenerTelefonoPaciente(telefono);
                         if(telefonoPaciente != null) {
-                            System.out.println("\n||Ya existe ese numero de telefono, intenta con otro    ☏☏\n");
+                            System.out.println("\n☏☏    Ya existe ese numero de telefono, intenta con otro    ☏☏\n");
                             telefono = null;
                         }
                     }
@@ -241,7 +241,7 @@ public class Menu {
                         telefonoMedico = scanner.nextLine();
                         Medico telefonoMedico1 = hospital.obtenerTelefonoMedico(telefonoMedico);
                         if(telefonoMedico1 != null) {
-                            System.out.println("\n|| existe ese numero de telefono, intenta con otro||\n");
+                            System.out.println("\n☏☏    Ya existe ese numero de telefono, intenta con otro    ☏☏\n");
                             telefonoMedico = null;
                         }
                     }
@@ -254,7 +254,7 @@ public class Menu {
                         rfc = scanner.nextLine();
                         Medico rfcMedico1 = hospital.obtenerRfcMedico(rfc);
                         if(rfcMedico1 != null) {
-                            System.out.println("\n☏☏    Ya existe ese RFC, intenta con otro ||\n");
+                            System.out.println("\n☏☏    Ya existe ese RFC, intenta con otro    ☏☏\n");
                             rfc = null;
                         }
                     }
@@ -434,7 +434,7 @@ public class Menu {
                         telefonoAdmin = scanner.nextLine();
                         Administrador telefonoAdmin1 = hospital.obtenerTelefonoAdmin(telefonoAdmin);
                         if(telefonoAdmin1 != null) {
-                            System.out.println("\n||Ya existe ese numero de telefono, intenta con otro    ☏☏\n");
+                            System.out.println("\n☏☏    Ya existe ese numero de telefono, intenta con otro    ☏☏\n");
                             telefonoAdmin = null;
                         }
                     }
@@ -447,7 +447,7 @@ public class Menu {
                         rfcAdmin = scanner.nextLine();
                         Administrador rfcAdmin1 = hospital.obtenerRfcAdmin(rfcAdmin);
                         if(rfcAdmin1 != null) {
-                            System.out.println("\n||Ya existe ese RFC, intenta con otro||\n");
+                            System.out.println("\n☏☏    Ya existe ese RFC, intenta con otro    ☏☏\n");
                             rfcAdmin = null;
                         }
                     }
@@ -455,7 +455,7 @@ public class Menu {
                     System.out.println("Ingresa tu sueldo quincenal: ");
                     double sueldo = scanner.nextDouble();
 
-                    System.out.println("Ingresa los años que llevas laborando: ");
+                    System.out.println("Ingresa los anios que llevas laborando: ");
                     int antiguedad = scanner.nextInt();
 
                     String idAdmin = hospital.generarIdAdmin(apellidosAdmin,String.valueOf(fechaNacimientoAdmin));
@@ -469,11 +469,10 @@ public class Menu {
                     hospital.mostrarAdministradores();
                     break;
                 case 14:
-                    System.out.println("\n**Saliendo del sistema :D **\n");
-                    scanner.nextLine();
+                    System.out.println("\n♛♛    Saliendo del sistema    ♛♛\n");
                     break;
                 default:
-                    System.out.println("\n  ||Numero no esta dentro de las opciones||\n");
+                    System.out.println("\n☩ : ☩   Numero no esta dentro de las opciones   ☩ : ☩\n");
             }
         }
     }

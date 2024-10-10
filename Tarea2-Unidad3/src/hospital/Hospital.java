@@ -1,16 +1,16 @@
 package hospital;
 import consultas.Consulta;
 import consultorios.Consultorio;
+import usuarios.Usuario;
+import usuarios.administradores.Administrador;
+import usuarios.medicos.Medico;
+import usuarios.pacientes.Paciente;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
-import usuarios.Usuario;
-import usuarios.administradores.Administrador;
-import usuarios.medicos.Medico;
-import usuarios.pacientes.Paciente;
 // grabar pantalla al terminar  y subir .gif  y subirlo a github
 public class Hospital {
 
@@ -122,7 +122,7 @@ public class Hospital {
         String ap = apellido.substring(0, 2).toUpperCase();
         char ultimoDigito = fechaNacimiento.charAt(fechaNacimiento.length()-1);
         int yearActual = fecha.getYear();
-        int aleatorio = random.nextInt(70001)+51;
+        int aleatorio = random.nextInt(51,70001);
         int lista = listaMedicos.size()+1;
         return String.format("M-%s-%s-%d-%d-%d",
                 ap,
@@ -139,7 +139,7 @@ public class Hospital {
         String ap = apellido.substring(0, 2).toUpperCase();
         char ultimoDigito = fechaNacimiento.charAt(fechaNacimiento.length()-1);
         int yearActual = fecha.getYear();
-        int aleatorio = random.nextInt(70001)+51;
+        int aleatorio = random.nextInt(51,70001);
         int lista = listaAdministradores.size()+1;
         return String.format("A-%s-%s-%d-%d-%d",
                 ap,
