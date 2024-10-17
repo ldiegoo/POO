@@ -1,6 +1,7 @@
 package hospital;
 import consultas.Consulta;
 import consultorios.Consultorio;
+
 import usuarios.Usuario;
 import usuarios.administradores.Administrador;
 import usuarios.medicos.Medico;
@@ -122,7 +123,7 @@ public class Hospital {
         String ap = apellido.substring(0, 2).toUpperCase();
         char ultimoDigito = fechaNacimiento.charAt(fechaNacimiento.length()-1);
         int yearActual = fecha.getYear();
-        int aleatorio = random.nextInt(51,70001);
+        int aleatorio = random.nextInt(70001)+51;
         int lista = listaMedicos.size()+1;
         return String.format("M-%s-%s-%d-%d-%d",
                 ap,
@@ -139,7 +140,7 @@ public class Hospital {
         String ap = apellido.substring(0, 2).toUpperCase();
         char ultimoDigito = fechaNacimiento.charAt(fechaNacimiento.length()-1);
         int yearActual = fecha.getYear();
-        int aleatorio = random.nextInt(51,70001);
+        int aleatorio = random.nextInt(70001)+51;
         int lista = listaAdministradores.size()+1;
         return String.format("A-%s-%s-%d-%d-%d",
                 ap,
@@ -301,6 +302,16 @@ public class Hospital {
             }
         }
         return null;
+    }
+    public void verConsultasPaciente(String idPaciente){
+        boolean existenConsultas=false;
+
+        for(idPaciente.equals(consulta.getPaciente().getId()) && consulta.getStatus() == Status.PENDIENTE){
+            existenConsultas=true;
+            //Mostrar consultas
+            System.out.println(consulta.mostrarDatos());
+        }
+
     }
 
 //    metodos privados

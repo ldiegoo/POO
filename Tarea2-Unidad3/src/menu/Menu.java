@@ -74,10 +74,12 @@ public class Menu {
         String id = scanner.nextLine();
 
         int opcion = 0;
-        while(opcion !=2) {
+        while(opcion !=4) {
             System.out.println("\n****BIENVENIDO****");
             System.out.println("1. Ver consultas");
-            System.out.println("2. Salir");
+            System.out.println("2. Ver mi informacion personal");
+            System.out.println("3. Ver mi expendiente");
+            System.out.println("4. Salir");
 
             System.out.println("Selecciona una opcion: ");
             opcion = scanner.nextInt();
@@ -103,12 +105,14 @@ public class Menu {
         System.out.print("Ingresa tu Id: ");
         String id = scanner.nextLine();
         int opcion2 = 0;
-        while(opcion2 !=3) {
+        while(opcion2 !=6) {
             System.out.println("\n****BIENVENIDO****");
-            System.out.println("1. Ver consultas");
-            System.out.println("2. Ver mis usuarios.pacientes");
+            System.out.println("1. Ver consultas actuales");
+            System.out.println("2. Ver mis usuarios pacientes");
             System.out.println("3. Consultar Paciente");
-            System.out.println("4. Salir");
+            System.out.println("4. Consultar expediente de paciente");
+            System.out.println("5. Completar consulta");
+            System.out.println("6. Salir");
 
             System.out.println("Selecciona una opcion: ");
             opcion2 = scanner.nextInt();
@@ -119,7 +123,7 @@ public class Menu {
                     hospital.mostrarConsultasPorMedico(id);
                     break;
                 case 2:
-//                    ver mis usuarios.pacientes
+            //ver mis usuarios.pacientes
                     System.out.println(hospital.obtenerNombresPacientesPorMedico(id));
                     break;
                 case 3:

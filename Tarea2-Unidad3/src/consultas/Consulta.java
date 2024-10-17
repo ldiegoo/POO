@@ -1,6 +1,7 @@
 package consultas;
 
 import consultorios.Consultorio;
+
 import usuarios.medicos.Medico;
 import usuarios.pacientes.Paciente;
 
@@ -13,31 +14,24 @@ public class Consulta {
     public Paciente paciente;
     public Medico medico;
     public Consultorio consultorio;
+    public Status status;
 
-    Random random = new Random();
-
-//    constructor
-    public Consulta(LocalDateTime fechaHora, Paciente paciente, Medico medico, Consultorio consultorio) {
-        this.id = this.random.nextInt(1,10001);
+    public Consulta(int id, LocalDateTime fechaHora, Paciente paciente, Medico medico, Consultorio consultorio) {
+        this.id = id;
         this.fechaHora = fechaHora;
         this.paciente = paciente;
         this.medico = medico;
         this.consultorio = consultorio;
+        this.status=status;
     }
 
-    public String mostrarDatos() {
-        return String.format("Id: %d, Fechay Hora: %s, Id Paciente: %s, Paciente: %s, Id Medico: %s, Medico %s, Piso Consultorio: %d, Numero Consultorio: %d",
-                getId(),
-                getFechaHora(),
-                paciente.getId(),
-                paciente.getNombre(),
-                medico.getId(),
-                medico.getNombre(),
-                consultorio.getPiso(),
-                consultorio.getNumeroConsultorio());
+    public void setStatus(Status status) {
+        this.status = status;
     }
 
-//    getter
+    public Status getStatus() {
+        return status;
+    }
 
     public int getId() {
         return id;
@@ -57,6 +51,19 @@ public class Consulta {
 
     public Consultorio getConsultorio() {
         return consultorio;
+    }
+
+    public String mostrarInformacion(){
+        String info = String.format("\nID: %s, fecha: %s, id paciente: %s, nombre paciente: %s, id medico: %s, piso consultorio: %s,numero onsultorio: %s",
+                id,
+                fechaHora,
+                paciente.getId(),
+                medico.getId(),
+                medico.getNombre(),
+                consultorio.getPiso(),
+                consultorio.getNumeroConsultorio()
+        );
+        return info;
     }
 }
 
