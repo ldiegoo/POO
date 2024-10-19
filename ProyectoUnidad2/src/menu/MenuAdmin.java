@@ -9,6 +9,7 @@ public class MenuAdmin {
     public int mostrarMenu() {
         int opcion=0;
 
+
         System.out.println("BIENVENIDO QUERIDO ADMINISTRADOR");
         System.out.println("1. Registrar Cinepolito");
         System.out.println("2. Listar Cinepolito");
@@ -121,5 +122,6 @@ public class MenuAdmin {
                 System.out.println("HASTA LUEGO, QUERIDO ADMIN");
                 break;
         }
+        System.out.println("aaaaa");
     }
     }
