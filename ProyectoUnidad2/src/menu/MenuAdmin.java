@@ -120,7 +120,9 @@ public class MenuAdmin {
                 System.out.println("Seleccionaste la opcion de cerrar sesion");
                 System.out.println("HASTA LUEGO, QUERIDO ADMIN");
                 break;
+
         }
+        System.out.println("aaaaaaaa");
     }
 
 }
