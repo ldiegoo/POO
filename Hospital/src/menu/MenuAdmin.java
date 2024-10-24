@@ -3,42 +3,41 @@ package menu;
 import consultas.Consulta;
 import consultorios.Consultorio;
 import hospital.Hospital;
-import usuarios.medicos.Rol;
-import usuarios.medicos.Usuario;
-import usuarios.medicos.administradores.Administrador;
-import usuarios.medicos.medicos.Medico;
-import usuarios.medicos.pacientes.Paciente;
-
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Scanner;
+import usuarios.medicos.Rol;
+import usuarios.medicos.administradores.Administrador;
+import usuarios.medicos.medicos.Medico;
+import usuarios.medicos.pacientes.Paciente;
 
 public class MenuAdmin {
 
     private Scanner scanner = new Scanner(System.in);
+    private Rol rol;
 
     public int mostrarMenu () {
 
-        System.out.println("\n*** BIEVENIDO ***");
-        System.out.println("1. Registrar paciente");
-        System.out.println("2. Registrar medico");
-        System.out.println("3. Registrar consultorio");
-        System.out.println("4. Registrar consulta");
-        System.out.println("5. Mostrar pacientes");
-        System.out.println("6. Mostrar medicos");
-        System.out.println("7. Mostrar consultorios");
-        System.out.println("8. Mostrar consultas");
-        System.out.println("9. Mostrar paciente por ID");
-        System.out.println("10. Mostrar medicos por ID");
-        System.out.println("11. Mostrar consultorios por ID");
-        System.out.println("12. Mostrar consultas por ID");
-        System.out.println("13. Ver mis datos");
-        System.out.println("14. Salir");
-
-        System.out.print("\nSelecciona una opción: ");
-        int opcion = scanner.nextInt();
-        return opcion;
+                System.out.println("\n*** BIEVENIDO ***");
+                System.out.println("1. Registrar paciente");
+                System.out.println("2. Registrar medico");
+                System.out.println("3. Registrar consultorio");
+                System.out.println("4. Registrar consulta");
+                System.out.println("5. Mostrar pacientes");
+                System.out.println("6. Mostrar medicos");
+                System.out.println("7. Mostrar consultorios");
+                System.out.println("8. Mostrar consultas");
+                System.out.println("9. Mostrar paciente por ID");
+                System.out.println("10. Mostrar medicos por ID");
+                System.out.println("11. Mostrar consultorios por ID");
+                System.out.println("12. Mostrar consultas por ID");
+                System.out.println("13. Ver mis datos");
+                System.out.println("14. Salir");
+                System.out.println();
+                System.out.print("\nSelecciona una opción: ");
+                int opcion = scanner.nextInt();
+                return opcion;
 
     }
 
@@ -242,71 +241,10 @@ public class MenuAdmin {
         }
     }
 
-    private ArrayList<String> obtenerDatosComun(Rol rol, Hospital hospital) {
-        //Metodo Ternario
-        String tipoUsuario = rol == Rol.PACIENTE ? "Paciente" : rol == Rol.MEDICO ? "Medico" : "Administrtador";
-
-        ArrayList<String> datosComun = new ArrayList<>();
-        System.out.println(String.format( "Ingresa el nombre del %s:", tipoUsuario));
-        String nombre = scanner.nextLine();
-        datosComun.add(nombre);
-
-        System.out.println(String.format( "Ingresa el apellido del %s:", tipoUsuario));
-        String apellido = scanner.nextLine();
-        datosComun.add(apellido);
-
-        datosComun.add(obtenerFechaNacimientoUsuario(tipoUsuario));
-
-        datosComun.add(obtenerTelefonoUsuario(tipoUsuario));
-
-        return datosComun;
+    private ArrayList<String> obtenerDatosComun(Rol paciente, Hospital hospital) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'obtenerDatosComun'");
     }
 
-    private boolean validarTelefonoRepetido(ArrayList<? extends Usuario> listaUsuarios, String telefono) {
-        for (Usuario usuario : listaUsuarios) {
-            if (usuario.getTelefono().equals(telefono)) {
-                System.out.println("Ya existe un ususario con ese telefono. Intenta de nuevo");
-                return false;
-            }
-        }
-        return true;
-    }
-
-    private String obtenerFechaNacimientoUsuario( String tipoUsuario) {
-        boolean esFechaValuda = false;
-        LocalDate fechaNacimiento = LocalDate.now();
-
-        while (!esFechaValuda) {
-            System.out.println(String.format( "Ingresa el año de nacimiento del %s:", tipoUsuario));
-            int anio = scanner.nextInt();
-
-            System.out.println(String.format( "Ingresa el mes de nacimiento del %s:", tipoUsuario));
-            int mes = scanner.nextInt();
-
-            scanner.nextLine();
-
-            System.out.println(String.format( "Ingresa el dia de nacimiento del %s:", tipoUsuario));
-            int dia = scanner.nextInt();
-
-            fechaNacimiento = LocalDate.of(anio, mes, dia);
-
-            if (fechaNacimiento.isAfter(LocalDate.now())) {
-                System.out.println("La fecha de nacimiento no puede ser posterior al dia de hoy");
-            }else {
-                esFechaValuda = true;
-            }
-        }
-        return fechaNacimiento.toString();
-    }
-
-    private String obtenerTelefonoUsuario(String tipoUsuario) {
-        boolean esTelefonoValido = false;
-        Hospital hospital = new Hospital();
-        while (!esTelefonoValido) {
-            String telefono;
-            System.out.println(String.format("Ingresa el telefono del %s:", tipoUsuario));
-            telefono = scanner.nextLine();
-            esTelefonoValido = validarTelefonoRepetido(rol == Rol.MEDICO ? hospital.listaPacientes : hospital.listaMedicos, tipoUsuario);
-        }
-    }
+    
 }

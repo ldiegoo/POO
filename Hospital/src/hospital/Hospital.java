@@ -2,15 +2,16 @@ package hospital;
 
 import consultas.Consulta;
 import consultorios.Consultorio;
-import usuarios.medicos.Usuario;
-import usuarios.medicos.administradores.Administrador;
-import usuarios.medicos.medicos.Medico;
-import usuarios.medicos.pacientes.Paciente;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Optional;
 import java.util.Random;
+import java.util.Scanner;
+import usuarios.medicos.Rol;
+import usuarios.medicos.Usuario;
+import usuarios.medicos.administradores.Administrador;
+import usuarios.medicos.medicos.Medico;
+import usuarios.medicos.pacientes.Paciente;
 
 public class Hospital {
     public ArrayList<Usuario> listaUsuarios = new ArrayList<>();
@@ -21,6 +22,8 @@ public class Hospital {
     public ArrayList<Consultorio> listaConsultorios = new ArrayList<>();
     public ArrayList<Administrador> listaAdministradores = new ArrayList<>();
     private ValidadorHospital validador = new ValidadorHospital();
+    private  Scanner scanner = new Scanner(System.in);
+    private Rol rol;
 
     public Hospital() {
         Administrador admin = new Administrador("AD01", "Pedro", "Perez", LocalDate.of(1990, 12, 12), "1234567890", "09876",23344,"342",3);
@@ -280,5 +283,95 @@ public class Hospital {
     public void verInformacionAdmin(Administrador administrador) {
         System.out.println("Información personal del admin:");
         System.out.println(administrador.mostrarDatos());
+    }
+//Validaciones
+private ArrayList<String> obtenerDatosComun(Rol rol, Hospital hospital) {
+        //Metodo Ternario
+        String tipoUsuario = rol == Rol.PACIENTE ? "Paciente" : rol == Rol.MEDICO ? "Medico" : "Administrtador";
+
+        ArrayList<String> datosComun = new ArrayList<>();
+        System.out.println(String.format( "Ingresa el nombre del %s:", tipoUsuario));
+        String nombre = scanner.nextLine();
+        datosComun.add(nombre);
+
+        System.out.println(String.format( "Ingresa el apellido del %s:", tipoUsuario));
+        String apellido = scanner.nextLine();
+        datosComun.add(apellido);
+
+        datosComun.add(obtenerFechaNacimientoUsuario(tipoUsuario));
+
+        datosComun.add(obtenerTelefonoUsuario(tipoUsuario));
+
+        return datosComun;
+    }
+
+    private boolean validarTelefonoRepetido(ArrayList<? extends Usuario> listaUsuarios, String telefono) {
+        for (Usuario usuario : listaUsuarios) {
+            if (usuario.getTelefono().equals(telefono)) {
+                System.out.println("Ya existe un ususario con ese telefono. Intenta de nuevo");
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private String obtenerFechaNacimientoUsuario( String tipoUsuario) {
+        boolean esFechaValuda = false;
+        LocalDate fechaNacimiento = LocalDate.now();
+
+        while (!esFechaValuda) {
+            System.out.println(String.format( "Ingresa el año de nacimiento del %s:", tipoUsuario));
+            int anio = scanner.nextInt();
+
+            System.out.println(String.format( "Ingresa el mes de nacimiento del %s:", tipoUsuario));
+            int mes = scanner.nextInt();
+
+            scanner.nextLine();
+
+            System.out.println(String.format( "Ingresa el dia de nacimiento del %s:", tipoUsuario));
+            int dia = scanner.nextInt();
+
+            fechaNacimiento = LocalDate.of(anio, mes, dia);
+
+            if (fechaNacimiento.isAfter(LocalDate.now())) {
+                System.out.println("La fecha de nacimiento no puede ser posterior al dia de hoy");
+            }else {
+                esFechaValuda = true;
+            }
+        }
+        return fechaNacimiento.toString();
+    }
+
+    private String obtenerTelefonoUsuario(String tipoUsuario) {
+        boolean esTelefonoValido = false;
+        Hospital hospital = new Hospital();
+        while (!esTelefonoValido) {
+            String telefono;
+            System.out.println(String.format("Ingresa el telefono del %s:", tipoUsuario));
+            telefono = scanner.nextLine();
+            esTelefonoValido = validarTelefonoRepetido(rol == Rol.MEDICO ? hospital.listaPacientes : hospital.listaMedicos, tipoUsuario);
+        }
+    return tipoUsuario;
+    }
+    private boolean validarEmailRepetido(ArrayList<? extends Usuario> listaUsuarios, String email) {
+        for (Usuario usuario : listaUsuarios) {
+            if (usuario.getTelefono().equals(email)) {
+                System.out.println("Ya existe un usuario con ese email. Intenta de nuevo");
+                return false;
+            }
+        }
+        return true;
+    }
+    private String obtenerTEmailUsuario(String tipoUsuario) {
+        
+        boolean esEmailValido = false;
+        Hospital hospital = new Hospital();
+        while (!esEmailValido) {
+            String Email;
+            System.out.println(String.format("Ingresa el telefono del %s:", tipoUsuario));
+            Email = scanner.nextLine();
+            esEmailValido = validarTelefonoRepetido(rol == Rol.MEDICO ? hospital.listaPacientes : hospital.listaMedicos, tipoUsuario);
+        }
+        return tipoUsuario;   
     }
 }
