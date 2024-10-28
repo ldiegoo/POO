@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f628a443-0097-4dde-bb02-d7ccd3139ed4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Hospital/src/menu/MenuAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hospital/src/menu/MenuAdmin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +38,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;tarea4/unidad3&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;tarea5/unidad3&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/guzdi/TEC/POO/POO&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -49,6 +49,21 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="POO" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="POO" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -69,6 +84,8 @@
       <workItem from="1729363219229" duration="17000" />
       <workItem from="1729651217329" duration="639000" />
       <workItem from="1729729456417" duration="40000" />
+      <workItem from="1729743408709" duration="673000" />
+      <workItem from="1729864786763" duration="7000" />
     </task>
     <servers />
   </component>

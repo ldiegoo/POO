@@ -31,4 +31,8 @@ public class Administrador extends Usuario {
     public String mostrarDatos() {
         return super.mostrarDatos() + String.format("|  Sueldo: %s  |  Rfc: %s  | Años Trabajando: %s | ", sueldo, RFC, aniosTrabajados);
     }
+
+
+    
 }
+
