@@ -1,13 +1,12 @@
 package menu;
 
 import hospital.Hospital;
+import java.util.Scanner;
 import usuarios.medicos.Rol;
 import usuarios.medicos.Usuario;
 import usuarios.medicos.administradores.Administrador;
 import usuarios.medicos.medicos.Medico;
 import usuarios.medicos.pacientes.Paciente;
-
-import java.util.Scanner;
 
 public class Menu {
 
